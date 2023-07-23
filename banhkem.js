@@ -8,60 +8,54 @@ function wait(second) {
   let waitPromise = new Promise((resolver, rejector) => {
     setTimeout(() => {
       resolver();
-    }, second);
+    }, second * 1000);
   });
   return waitPromise;
 }
 
 async function nameCake() {
   let nameCake;
-  console.log("Nhập tên chủ nhân chiếc bánh:");
-  await new Promise((resolve, reject) => {
+  console.log("Nhập tên chủ nhân chiếc bánh");
+  nameCake=await new Promise((resolve, reject) => {
     rl.on("line", (input) => {
       nameCake = parseInt(input);
-      console.log("Tên đẹp quá :3333\n");
-      resolve();
-      rl.close();
+      resolve(input);
+      // rl.close();
     });
   });
 }
 async function age() {
   let age;
-  console.log("Nhập tuổi của người ấy:");
-  await new Promise((resolve, reject) => {
+  console.log("Nhập tuoi luon di");
+  age=await new Promise((resolve, reject) => {
     rl.on("line", (input) => {
       age = parseInt(input);
-      resolve();
-      rl.close();
+      resolve( parseInt);
+      // rl.close();
     });
   });
 }
-async function size(sizeExpect) {
+async function sizeCake(sizeExpect) {
   let size;
   return new Promise(async (resolve, reject) => {
     console.log("tiep size luon ban oi");
     await new Promise((resolve, reject) => {
       rl.on("line", (input) => {
         size = parseInt(input);
-        resolve();
-        rl.close();
+        resolve(parseInt);
+        // rl.close();
       });
     });
     let sizeS = "169000";
     let sizeM = "233000";
     let sizeL = "510000";
-    if (sizeS >= moneyExpect) {
+    if (sizeExpect >= sizeL ) {
+      resolve("Ok đủ tiền mua size M ^^");
+    }
+    else if (sizeExpect >= sizeM) {
+      resolve("Ok đủ tiền mua size M ^^");
+    } else if (sizeExpect >= sizeS) {
       resolve("Ok đủ tiền mua size S ^^");
-    } else {
-      reject("Mẹ cho hỏng đủ tiền");
-    }
-    if (sizeM >= moneyExpect) {
-      resolve("Ok đủ tiền mua size M ^^");
-    } else {
-      reject("Mẹ cho hỏng đủ tiền");
-    }
-    if (sizeL >= moneyExpect) {
-      resolve("Ok đủ tiền mua size M ^^");
     } else {
       reject("Mẹ cho hỏng đủ tiền");
     }
@@ -74,15 +68,16 @@ async function getMoney(moneyExpect) {
     await new Promise((resolve, reject) => {
       rl.on("line", (input) => {
         moneyGet = parseInt(input);
-        resolve();
-        rl.close();
+        resolve(moneyGet);
+        // rl.close();
       });
     });
-    if (moneyGet >= moneyExpect) {
-      resolve("Ok đủ tiền đi");
-    } else {
-      reject("Mẹ cho hỏng đủ tiền");
-    }
+    resolve(moneyGet);
+    // if (moneyGet >= moneyExpect) {
+    //   resolve("Ok đủ tiền đi");
+    // } else {
+    //   reject("Mẹ cho hỏng đủ tiền");
+    // }
   });
 }
 async function goBuyRawMaterials() {
@@ -167,12 +162,12 @@ async function quat() {
   console.log("Quất!!!!!!!!!!!!!!!!!!!!!");
 }
 let main = async function () {
-  await nameCake();
-  wait(500);  
-  await age();
-  let expectMoney = await size();
-  await getMoney(expectMoney)
+  let input01 = await nameCake();
+  let input02 = await age();
+
+  await getMoney()
     .then(async (value) => {
+       await sizeCake(value);
       console.log(value);
       await goBuyRawMaterials();
       await cooking();
