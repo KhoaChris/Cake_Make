@@ -15,7 +15,7 @@ function wait(second) {
 
 async function nameCake() {
   let nameCake;
-  console.log("Nhập tên chủ nhân chiếc bánh");
+  console.log("Nhập tên chủ nhân chiếc bánh:");
   nameCake=await new Promise((resolve, reject) => {
     rl.on("line", (input) => {
       nameCake = parseInt(input);
@@ -26,7 +26,7 @@ async function nameCake() {
 }
 async function age() {
   let age;
-  console.log("Nhập tuoi luon di");
+  console.log("Nhập tuổi người ấy:");
   age=await new Promise((resolve, reject) => {
     rl.on("line", (input) => {
       age = parseInt(input);
@@ -38,7 +38,7 @@ async function age() {
 async function sizeCake(sizeExpect) {
   let size;
   return new Promise(async (resolve, reject) => {
-    console.log("tiep size luon ban oi");
+    console.log("Bạn muốn làm size gì nè :3 Nhập đi nào:");
     await new Promise((resolve, reject) => {
       rl.on("line", (input) => {
         size = parseInt(input);
@@ -50,14 +50,14 @@ async function sizeCake(sizeExpect) {
     let sizeM = "233000";
     let sizeL = "510000";
     if (sizeExpect >= sizeL ) {
-      resolve("Ok đủ tiền mua size M ^^");
+      resolve("Okee tiền đã đủ để triển size L ^^");
     }
     else if (sizeExpect >= sizeM) {
-      resolve("Ok đủ tiền mua size M ^^");
+      resolve("Okee tiền đã đủ để triển size M ^^");
     } else if (sizeExpect >= sizeS) {
-      resolve("Ok đủ tiền mua size S ^^");
+      resolve("Okee tiền đã đủ để triển size S ^^");
     } else {
-      reject("Mẹ cho hỏng đủ tiền");
+      reject("Hic tiền đâu đủ để làm cái nào đâu :(((");
     }
   });
 }
@@ -81,9 +81,9 @@ async function getMoney(moneyExpect) {
   });
 }
 async function goBuyRawMaterials() {
-  console.log("Bat dau di mua");
+  console.log("Bắt đầu đi mua nguyên liệu chế biến nào !!!");
   await wait(4);
-  console.log("Bắt đầu về");
+  console.log("Bắt đầu tung tăng về nhà thôi");
   await wait(2);
   console.log("Về đến nhà rồi nè!!!!!!!!!!");
 }
@@ -95,7 +95,7 @@ async function cooking() {
       console.log("2.Ray bột");
       console.log("3.Chuẩn bị gia vị");
       await wait(5);
-      console.log("sơ chế hoàn thành");
+      console.log("Sơ chế hoàn thành");
       res();
     });
   }
@@ -111,7 +111,7 @@ async function cooking() {
     return new Promise(async (resolve, reject) => {
       console.log("Ủ bột");
       await wait(10);
-      console.log("đã OK luôn");
+      console.log("Okayyy rồi đấy :))) ");
       resolve();
     });
   }
@@ -119,7 +119,7 @@ async function cooking() {
     return new Promise(async (resolve, reject) => {
       console.log("Tạo khuôn cho bánh");
       await wait(10);
-      console.log("đã OKkkkk");
+      console.log("Sắp vô form rùiii");
       resolve();
     });
   }
@@ -135,7 +135,7 @@ async function cooking() {
     return new Promise(async (resolve, reject) => {
       console.log("Phết kem lên bánh đã tạo hình");
       await wait(10);
-      console.log("đã OKkkkk luôn nhé!!!!");
+      console.log("Đã thêm kem lên bánh !!! Nhìn ra gì phết");
       resolve();
     });
   }
@@ -159,7 +159,7 @@ async function cooking() {
 }
 async function quat() {
   await wait(1);
-  console.log("Quất!!!!!!!!!!!!!!!!!!!!!");
+  console.log("Đợi chờ gì nữa, xơiiiiiiiii");
 }
 let main = async function () {
   let input01 = await nameCake();
@@ -175,7 +175,7 @@ let main = async function () {
     })
     .catch((value) => {
       console.log(value);
-      console.log("Thôi ở nhà nhịn đói");
+      console.log("Haizzz hong cho đủ tiền, tưởng cắn được miếng đi chơi net :(((");
     });
 };
 
