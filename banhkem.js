@@ -16,7 +16,7 @@ function wait(second) {
 async function nameCake() {
   let nameCake;
   console.log("Nhập tên chủ nhân chiếc bánh:");
-  nameCake=await new Promise((resolve, reject) => {
+  nameCake = await new Promise((resolve, reject) => {
     rl.on("line", (input) => {
       nameCake = parseInt(input);
       resolve(input);
@@ -27,10 +27,10 @@ async function nameCake() {
 async function age() {
   let age;
   console.log("Nhập tuổi người ấy:");
-  age=await new Promise((resolve, reject) => {
+  age = await new Promise((resolve, reject) => {
     rl.on("line", (input) => {
       age = parseInt(input);
-      resolve( parseInt);
+      resolve(parseInt);
       // rl.close();
     });
   });
@@ -49,10 +49,9 @@ async function sizeCake(sizeExpect) {
     let sizeS = "169000";
     let sizeM = "233000";
     let sizeL = "510000";
-    if (sizeExpect >= sizeL ) {
+    if (sizeExpect >= sizeL) {
       resolve("Okee tiền đã đủ để triển size L ^^");
-    }
-    else if (sizeExpect >= sizeM) {
+    } else if (sizeExpect >= sizeM) {
       resolve("Okee tiền đã đủ để triển size M ^^");
     } else if (sizeExpect >= sizeS) {
       resolve("Okee tiền đã đủ để triển size S ^^");
@@ -64,7 +63,7 @@ async function sizeCake(sizeExpect) {
 async function getMoney(moneyExpect) {
   let moneyGet;
   return new Promise(async (resolve, reject) => {
-    console.log("Lấy tiền mẹ thôi!!!!");
+    console.log("Lấy tiền mẹ thôi!!!! Mẹ bạn cho bao nhiêu nè:");
     await new Promise((resolve, reject) => {
       rl.on("line", (input) => {
         moneyGet = parseInt(input);
@@ -167,7 +166,7 @@ let main = async function () {
 
   await getMoney()
     .then(async (value) => {
-       await sizeCake(value);
+      await sizeCake(value);
       console.log(value);
       await goBuyRawMaterials();
       await cooking();
@@ -175,7 +174,9 @@ let main = async function () {
     })
     .catch((value) => {
       console.log(value);
-      console.log("Haizzz hong cho đủ tiền, tưởng cắn được miếng đi chơi net :(((");
+      console.log(
+        "Haizzz hong cho đủ tiền, tưởng cắn được miếng đi chơi net :((("
+      );
     });
 };
 
